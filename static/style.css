@@ -302,7 +302,7 @@ textarea, input {
 
 @media all and (max-width:800px) {
   .keys {
-    margin: 20px;
+    margin: 5px;
   }
 }
 
