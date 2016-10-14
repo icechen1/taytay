@@ -8,9 +8,9 @@ window.addEventListener("load", function() {
   var current = 0;
 
 	var getRandUsername = function(){
-		var list_A = ["Anonymous","Quirky","Kinky","Funny","Ignorant","Fail","Frustrated","Smart","Active","Undefined"]
+		var list_A = ["Anonymous","Quirky","Extravagant","Funny","Ignorant","Fail","Frustrated","Smart","Active","Undefined","Lazy","Dangerous", "Almighty"]
 		var list_B = ["Steve","Ballmer","Zombie","Bill","Gates","Interns","Jacklope",
-		"Elephant","Giraffe","Bravo","Lollipop","KitKat","Jellybean","Dolphin","Whale","Hasselhoff","Beetle","Lion","NaN","Pointer"]
+		"Elephant","Giraffe","Bravo","Lollipop","KitKat","Jellybean","Dolphin","Whale","Hasselhoff","Beetle","Lion","NaN","Pointer", "Tay", "Dork"]
 
 		return list_A[Math.floor(Math.random() * list_A.length)] + " " + list_B[Math.floor(Math.random() * list_B.length)];
 	};
@@ -45,7 +45,7 @@ window.addEventListener("load", function() {
 		40: { class: '.down', action: 'backward'},
 	};
 
-	$(document.documentElement).keydown(function(event){  
+	$(document.documentElement).keydown(function(event){
 			var key = mapping[event.keyCode];
 			if (key) {
 				$(key.class).addClass('pressed');
@@ -53,7 +53,7 @@ window.addEventListener("load", function() {
 			}
 	});
 
-	$(document.documentElement).keyup(function(event){  
+	$(document.documentElement).keyup(function(event){
 			var key = mapping[event.keyCode];
 			if (key) {
 				$(key.class).removeClass('pressed');
@@ -73,6 +73,7 @@ window.addEventListener("load", function() {
 	setupKeys('.right', 'right');
 	setupKeys('.up', 'forward');
 	setupKeys('.down', 'backward');
+	setupKeys('.stop', 'stop');
 
 	document.getElementById("send").addEventListener("click", sendMessage);
 	document.getElementById("message").addEventListener("keyup", function(evt) {
@@ -133,22 +134,5 @@ window.addEventListener("load", function() {
 
 		log.appendChild(m);
 		log.scrollTop = log.scrollHeight;
-	});
-
-	//256x192, scaled x3
-	var context = document.getElementById("video").getContext("2d");
-	socket.on("photo", function(photo) {
-		var image = new Image();
-		image.src = "data:image/png;base64," + photo;
-		image.onload = function() {
-			context.drawImage(image, 0, 0, 256, 192);
-		};
-	});
-  socket.on("webcam", function(photo) {
-		var image = new Image();
-		image.src = "data:image/png;base64," + photo;
-		image.onload = function() {
-			context.drawImage(image, 256, 0, 256, 192);
-		};
 	});
 });
