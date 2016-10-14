@@ -17,14 +17,19 @@ window.addEventListener("load", function() {
 	//get a spiffy username
 	document.getElementById("username").value = getRandUsername();
 
+	var pressCommand = function(cmd) {
+		socket.emit('command', {
+			"message": cmd,
+			"username": document.getElementById("username").value
+		});
+	}
+
 	var sendMessage = function() {
 		if (document.getElementById("message").value.replace(/(\n|\w)$/, "")=="") {
 			return;
 		}
-		socket.emit('command', {
-			"message": document.getElementById("message").value.replace(/\n$/, ""),
-			"username": document.getElementById("username").value
-		});
+		pressCommand(document.getElementById("message").value.replace(/\n$/, ""));
+
     previous.push(document.getElementById("message").value.replace(/\n$/, ""));
     while (previous.length>maxChats) {
       previous.shift();
@@ -32,6 +37,42 @@ window.addEventListener("load", function() {
     current = previous.length;
 		document.getElementById("message").value="";
 	}
+
+	var mapping = {
+		37: { class: '.left', action: 'left'},
+		38: { class: '.up', action: 'forward'},
+		39: { class: '.right', action: 'right'},
+		40: { class: '.down', action: 'backward'},
+	};
+
+	$(document.documentElement).keydown(function(event){  
+			var key = mapping[event.keyCode];
+			if (key) {
+				$(key.class).addClass('pressed');
+				pressCommand(key.action);
+			}
+	});
+
+	$(document.documentElement).keyup(function(event){  
+			var key = mapping[event.keyCode];
+			if (key) {
+				$(key.class).removeClass('pressed');
+			}
+	});
+
+	var setupKeys = function (key, effect) {
+		$(key).mousedown(function(){
+			$(this).addClass('pressed');
+			pressCommand(effect);
+		});
+		$(key).mouseup(function(){
+			$(this).removeClass('pressed');
+		});
+	}
+	setupKeys('.left', 'left');
+	setupKeys('.right', 'right');
+	setupKeys('.up', 'forward');
+	setupKeys('.down', 'backward');
 
 	document.getElementById("send").addEventListener("click", sendMessage);
 	document.getElementById("message").addEventListener("keyup", function(evt) {
