@@ -300,12 +300,6 @@ textarea, input {
   }
 }
 
-@media all and (max-width:800px) {
-  .keys {
-    margin: 5px;
-  }
-}
-
 .keys div {
   font-size: 2.4rem;
   display: inline-block;
@@ -328,4 +322,17 @@ textarea, input {
 .keys .pressed {
   border-bottom-width: 0.4rem;
   text-shadow: 0 0 10px white;
+}
+
+
+@media all and (max-width:800px) {
+  .keys {
+    margin: 5px;
+  }
+
+  .keys div {
+    height: 3rem;
+    width: 3rem;
+    padding: 0.5rem;
+  }
 }
