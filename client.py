@@ -41,7 +41,7 @@ with SocketIO("scribblerplaystwitch.herokuapp.com") as socket:
     if len(queue)>0:
       ready = False
       idle = False
-      snum=random.randint(0,len(queue)-1);
+      snum=random.randint(0,len(queue)-1)
       selected = queue.pop(snum)
       queue = []
       command = selected["message"].lower()

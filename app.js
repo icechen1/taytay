@@ -27,8 +27,7 @@ function parseCommand(msg){
                 io.sockets.emit('hasselhoff',{'message':"left",'username':msg.username});
               break;
             case "right":
-                  io.sockets.emit('hasselhoff',{'message':"right",'username':msg.username});
-
+                io.sockets.emit('hasselhoff',{'message':"right",'username':msg.username});
               break;
             case "hasselhoff":
                   io.sockets.emit('hasselhoff',{'message':"right",'username':msg.username});
