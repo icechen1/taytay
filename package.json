@@ -5,7 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "express": "latest",
-    "socket.io": "^0.9.0"
+    "socket.io": "^0.9.0",
+    "particle-api-js": "latest"
   },
   "devDependencies": {},
   "scripts": {
