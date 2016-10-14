@@ -287,13 +287,23 @@ textarea, input {
   }
 }
 
-.keys {
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
-  margin: auto;
-  text-align: center;
-  line-height: 8rem;
-  height: 16rem;
+
+
+@media all and (min-width:800px) {
+  .keys {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+    text-align: center;
+    line-height: 8rem;
+    height: 16rem;
+  }
+}
+
+@media all and (max-width:800px) {
+  .keys {
+    margin: 20px;
+  }
 }
 
 .keys div {
