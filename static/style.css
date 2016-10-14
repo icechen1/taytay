@@ -286,3 +286,46 @@ textarea, input {
             transform: perspective(400px);
   }
 }
+
+
+
+@media all and (min-width:800px) {
+  .keys {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+    text-align: center;
+    line-height: 8rem;
+    height: 16rem;
+  }
+}
+
+@media all and (max-width:800px) {
+  .keys {
+    margin: 20px;
+  }
+}
+
+.keys div {
+  font-size: 2.4rem;
+  display: inline-block;
+  padding: 1rem;
+  margin: 0 0.5rem;
+  height: 4rem;
+  width: 4rem;
+  line-height: 3.6rem;
+  text-align: center;
+  vertical-align: bottom;
+  color: white;
+  border-style: solid;
+  border-width: 0.4rem 0.45rem 0.6rem;
+  border-radius: 0.8rem;
+  border-color: #7A4A8D #421155 #421155 #9A73A9;
+  background: #7A4A8D;
+  transition: all 80ms ease;
+}
+
+.keys .pressed {
+  border-bottom-width: 0.4rem;
+  text-shadow: 0 0 10px white;
+}
