@@ -8,9 +8,9 @@ window.addEventListener("load", function() {
   var current = 0;
 
 	var getRandUsername = function(){
-		var list_A = ["Anonymous","Quirky","Extravagant","Funny","Ignorant","Fail","Frustrated","Smart","Active","Undefined"]
+		var list_A = ["Anonymous","Quirky","Extravagant","Funny","Ignorant","Fail","Frustrated","Smart","Active","Undefined","Lazy","Dangerous", "Almighty"]
 		var list_B = ["Steve","Ballmer","Zombie","Bill","Gates","Interns","Jacklope",
-		"Elephant","Giraffe","Bravo","Lollipop","KitKat","Jellybean","Dolphin","Whale","Hasselhoff","Beetle","Lion","NaN","Pointer"]
+		"Elephant","Giraffe","Bravo","Lollipop","KitKat","Jellybean","Dolphin","Whale","Hasselhoff","Beetle","Lion","NaN","Pointer", "Tay", "Dork"]
 
 		return list_A[Math.floor(Math.random() * list_A.length)] + " " + list_B[Math.floor(Math.random() * list_B.length)];
 	};

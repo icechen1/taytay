@@ -6,6 +6,6 @@ particle().then(function(move) {
   require('./webServer')(app);
   require('./socketServer')(http, move);
   http.listen(process.env.PORT||3000, function () {
-    console.log('Example app listening on port 3000!');
+    console.log('SumoBot app listening on port 3000!');
   });
 });
